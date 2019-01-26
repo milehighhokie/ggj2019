@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 35, 69.9 )
+extents = Vector2( 70, 139.9 )
 
 [node name="SubTemplate" type="Sprite" index="0"]
 
@@ -18,7 +18,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="." index="0"]
 
-position = Vector2( -410, 220 )
+position = Vector2( -450, 150 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -50,7 +50,7 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( -640, -360 )
 build_mode = 0
-polygon = PoolVector2Array( -1.71695, 351.425, -0.489212, 351.425, 626.885, 361.247, 1280, 352.976, 1280, 650, 0, 650, 0, 510, 812.273, 508.576, 809.818, 358.792, 626.885, 361.247, 0.738525, 353.881, -98.7082, 351.425, -100, 820, 1380, 820, 1380, -100, -100, -100, -98.7082, 351.425 )
+polygon = PoolVector2Array( 0, 650, -100, 650, -100, -100, 1380, -100, 1380, 820, -100, 800, -100, 650, 1280, 650, 1280, 370, 0, 370 )
 _sections_unfolded = [ "Transform" ]
 
 
