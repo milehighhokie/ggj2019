@@ -6,12 +6,12 @@
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=4]
 [ext_resource path="res://icon.png" type="Texture" id=5]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 30, 30 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 70, 139.9 )
@@ -41,10 +41,44 @@ audio_bus_name = "Master"
 script = ExtResource( 3 )
 corrupt_rate = 0.1
 recharge_rate = 1.0
+status_node = NodePath("../Polygon2D/Polygon2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bear-03/Area2D" index="0"]
 
-shape = SubResource( 2 )
+shape = SubResource( 1 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Bear-03" index="1"]
+
+position = Vector2( 38.1431, -24.5591 )
+polygon = PoolVector2Array( 0, 0, 0, 50, 10, 50, 10, 0 )
+uv = PoolVector2Array(  )
+color = Color( 0, 0, 0, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+
+[node name="Polygon2D" type="Polygon2D" parent="Bear-03/Polygon2D" index="0"]
+
+position = Vector2( 1, 49 )
+polygon = PoolVector2Array( 0, -48, 0, 0, 8, 0, 8, -48 )
+uv = PoolVector2Array(  )
+color = Color( 0.117647, 0.784314, 0, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+_sections_unfolded = [ "Transform" ]
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="." index="1"]
 
@@ -59,7 +93,7 @@ speed = 200
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D" index="0"]
 
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="icon" type="Sprite" parent="KinematicBody2D" index="1"]
 

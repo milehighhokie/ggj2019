@@ -4,13 +4,15 @@ extends Area2D
 # var a = 2
 # var b = "textvar"
 
-export var corrupt_rate = 0.1;
-export var recharge_rate = 1.0;
+export var corrupt_rate = 0.1
+export var recharge_rate = 1.0
+export(NodePath) var status_node
 
 var _status = 1.0;
 var _overlap = false;
 
 func _ready():
+	
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	pass
@@ -23,6 +25,7 @@ func _process(delta):
 	else:
 		_status = max(_status - corrupt_rate * delta, 0.0)
 	print("Bear Status: ", _status)
+	get_node(status_node).scale = Vector2(1, _status)
 	pass
 
 
