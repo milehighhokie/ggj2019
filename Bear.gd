@@ -24,7 +24,6 @@ func _process(delta):
 		_status = min(_status + recharge_rate * delta, 1.0)
 	else:
 		_status = max(_status - corrupt_rate * delta, 0.0)
-	print("Bear Status: ", _status)
 	get_node(status_node).scale = Vector2(1, _status)
 	pass
 

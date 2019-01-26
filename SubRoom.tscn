@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Stage2_StageTwo.png" type="Texture" id=1]
-[ext_resource path="res://Bear-03.png" type="Texture" id=2]
-[ext_resource path="res://Bear.gd" type="Script" id=3]
-[ext_resource path="res://KinematicBody2D.gd" type="Script" id=4]
-[ext_resource path="res://Walk.tres" type="Texture" id=5]
+[ext_resource path="res://SubRoom.gd" type="Script" id=2]
+[ext_resource path="res://Bear-03.png" type="Texture" id=3]
+[ext_resource path="res://Bear.gd" type="Script" id=4]
+[ext_resource path="res://CollisionShape2D.gd" type="Script" id=5]
+[ext_resource path="res://KinematicBody2D.gd" type="Script" id=6]
+[ext_resource path="res://Walk.tres" type="Texture" id=7]
+[ext_resource path="res://CollisionPolygon2D.gd" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -21,13 +24,14 @@ extents = Vector2( 70, 139.9 )
 position = Vector2( 655.093, 360 )
 scale = Vector2( 1.02358, 1 )
 texture = ExtResource( 1 )
+script = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Bear-03" type="Sprite" parent="." index="0"]
 
 position = Vector2( 120.645, 72.5965 )
 scale = Vector2( 1.74254, 1.74254 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="Bear-03" index="0"]
 
@@ -38,7 +42,8 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 3 )
+script = ExtResource( 4 )
+_sections_unfolded = [ "Collision" ]
 corrupt_rate = 0.1
 recharge_rate = 1.0
 status_node = NodePath("../Polygon2D/Polygon2D")
@@ -46,6 +51,7 @@ status_node = NodePath("../Polygon2D/Polygon2D")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bear-03/Area2D" index="0"]
 
 shape = SubResource( 1 )
+script = ExtResource( 5 )
 
 [node name="Polygon2D" type="Polygon2D" parent="Bear-03" index="1"]
 
@@ -87,20 +93,21 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 4 )
-_sections_unfolded = [ "Transform" ]
+script = ExtResource( 6 )
+_sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
 speed = 200
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D" index="0"]
 
 shape = SubResource( 2 )
+script = ExtResource( 5 )
 
 [node name="icon" type="Sprite" parent="KinematicBody2D" index="1"]
 
 position = Vector2( 5.97574, 6.93561 )
 scale = Vector2( 1.88639, 1.88639 )
-texture = ExtResource( 5 )
-_sections_unfolded = [ "Transform" ]
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="2"]
 
@@ -111,14 +118,23 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="0"]
 
 position = Vector2( -640, -360 )
 build_mode = 0
 polygon = PoolVector2Array( 0, 650, -100, 650, -100, -100, 1380, -100, 1380, 820, -100, 800, -100, 650, 1280, 650, 1280, 370, 0, 370 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
+
+[connection signal="on_enable" from="." to="Bear-03/Area2D/CollisionShape2D" method="enable"]
+
+[connection signal="on_enable" from="." to="KinematicBody2D" method="enable"]
+
+[connection signal="on_enable" from="." to="KinematicBody2D/CollisionShape2D" method="enable"]
+
+[connection signal="on_enable" from="." to="StaticBody2D/CollisionPolygon2D" method="enable"]
 
 [connection signal="body_entered" from="Bear-03/Area2D" to="Bear-03/Area2D" method="_on_Area2D_body_entered"]
 
