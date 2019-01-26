@@ -11,8 +11,8 @@ extents = Vector2( 35, 69.9 )
 
 [node name="SubTemplate" type="Sprite" index="0"]
 
-position = Vector2( 650.918, 360 )
-scale = Vector2( 1.01706, 1 )
+position = Vector2( 655.093, 360 )
+scale = Vector2( 1.02358, 1 )
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
