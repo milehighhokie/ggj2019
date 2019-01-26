@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Govenor.gd" type="Script" id=1]
+[ext_resource path="res://MainRoom.tscn" type="PackedScene" id=2]
+[ext_resource path="res://SubRoom.tscn" type="PackedScene" id=3]
+
+[node name="Node2D" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+main = NodePath("MainTemplate")
+subs = [ NodePath("SubTemplate1"), NodePath("SubTemplate2"), NodePath("SubTemplate3"), NodePath("SubTemplate4"), NodePath("SubTemplate5") ]
+
+[node name="MainTemplate" parent="." index="0" instance=ExtResource( 2 )]
+
+[node name="SubTemplate1" parent="." index="1" instance=ExtResource( 3 )]
+
+visible = false
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="SubTemplate2" parent="." index="2" instance=ExtResource( 3 )]
+
+visible = false
+
+[node name="SubTemplate3" parent="." index="3" instance=ExtResource( 3 )]
+
+visible = false
+
+[node name="SubTemplate4" parent="." index="4" instance=ExtResource( 3 )]
+
+visible = false
+
+[node name="SubTemplate5" parent="." index="5" instance=ExtResource( 3 )]
+
+visible = false
+
+[connection signal="on_enter_room" from="MainTemplate" to="." method="_on_enter_room"]
+
+
