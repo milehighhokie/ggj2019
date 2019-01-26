@@ -9,7 +9,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 35, 69.9 )
 
-[node name="MainTemplate" type="Sprite" index="0"]
+[node name="MainTemplate" type="Sprite"]
 
 position = Vector2( 640, 360 )
 texture = ExtResource( 1 )
