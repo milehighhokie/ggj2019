@@ -165,13 +165,13 @@ anims/Popup = SubResource( 4 )
 anims/Stay = SubResource( 5 )
 blend_times = [  ]
 
-[connection signal="on_enable" from="." to="Art Assets_Sister/Area2D/CollisionShape2D" method="enable"]
-
 [connection signal="on_enable" from="." to="Area2D/CollisionShape2D" method="enable"]
 
-[connection signal="on_enable" from="." to="StaticBody2D/CollisionPolygon2D" method="enable"]
-
 [connection signal="on_enable" from="." to="KinematicBody2D" method="enable"]
+
+[connection signal="on_enable" from="." to="Art Assets_Sister/Area2D/CollisionShape2D" method="enable"]
+
+[connection signal="on_enable" from="." to="StaticBody2D/CollisionPolygon2D" method="enable"]
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
 
