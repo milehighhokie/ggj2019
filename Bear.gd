@@ -8,7 +8,9 @@ signal on_turn(turned)
 
 export var corrupt_rate = 0.1
 export var recharge_rate = 1.0
-export(NodePath) var status_node
+export (NodePath) var status_node
+export (Texture) var good_texture
+export (Texture) var bad_texture
 
 var _status = 1.0
 var _overlap = false
@@ -26,11 +28,13 @@ func _process(delta):
 	if _overlap && Input.is_action_pressed('hug'):
 		_status = min(_status + recharge_rate * delta, 1.0)
 		if _turned:
+			get_parent().texture = good_texture
 			emit_signal("on_turn", false)
 			_turned = false
 	else:
 		_status = max(_status - corrupt_rate * delta, 0.0)
 		if !_turned && _status == 0:
+			get_parent().texture = bad_texture
 			emit_signal("on_turn", true)
 			_turned = true
 		
