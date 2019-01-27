@@ -36,4 +36,14 @@ visible = false
 
 [connection signal="on_enter_room" from="MainTemplate" to="." method="_on_enter_room"]
 
+[connection signal="on_exit_room" from="SubTemplate1" to="." method="_on_exit_room"]
+
+[connection signal="on_exit_room" from="SubTemplate2" to="." method="_on_exit_room"]
+
+[connection signal="on_exit_room" from="SubTemplate3" to="." method="_on_exit_room"]
+
+[connection signal="on_exit_room" from="SubTemplate4" to="." method="_on_exit_room"]
+
+[connection signal="on_exit_room" from="SubTemplate5" to="." method="_on_exit_room"]
+
 
