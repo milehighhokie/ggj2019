@@ -179,6 +179,30 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( -300, 200 ), Vector2( 260, 200 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("../icon:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Stand" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Stand" ]
+}
 
 [sub_resource type="Animation" id=5]
 
@@ -220,6 +244,30 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( -300, 200 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Stand" ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../icon:animation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Stand" ]
 }
 
 [sub_resource type="SpriteFrames" id=6]
@@ -288,7 +336,7 @@ corrupt_rate = -1
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." index="7"]
 
-color = Color( 0, 0, 0, 1 )
+color = Color( 1, 1, 1, 1 )
 script = ExtResource( 10 )
 _sections_unfolded = [ "Pause" ]
 target_color = Color( 0.4, 0.176471, 0.568627, 1 )
@@ -331,13 +379,12 @@ autostart = true
 
 [node name="Art Assets_Sister" type="AnimatedSprite" parent="." index="9"]
 
-position = Vector2( -50, 560 )
+position = Vector2( 1350, 220 )
 rotation = -3.14159
 scale = Vector2( 0.5, -0.5 )
 z_index = 1
 frames = SubResource( 2 )
-animation = "Walk"
-frame = 2
+animation = "Stand"
 playing = true
 _sections_unfolded = [ "Transform", "Z Index" ]
 
@@ -355,13 +402,12 @@ blend_times = [  ]
 
 [node name="icon" type="AnimatedSprite" parent="." index="10"]
 
-position = Vector2( -70, 580 )
+position = Vector2( -50, 580 )
 scale = Vector2( -0.5, 0.5 )
 z_index = 2
 z_as_relative = false
 frames = SubResource( 6 )
-animation = "Walk"
-frame = 1
+animation = "Stand"
 playing = true
 _sections_unfolded = [ "Transform", "Z Index" ]
 
