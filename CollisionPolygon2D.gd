@@ -5,12 +5,12 @@ extends CollisionPolygon2D
 # var b = "textvar"
 
 func enable(enabled):
-	disabled = !enabled
+    disabled = !enabled
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
+    # Called when the node is added to the scene for the first time.
+    # Initialization here
+    pass
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.

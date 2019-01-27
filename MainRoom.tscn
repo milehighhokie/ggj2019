@@ -166,15 +166,15 @@ _sections_unfolded = [ "Transform" ]
 
 [connection signal="on_enable" from="." to="AtticArea2D/CollisionShape2D" method="enable"]
 
-[connection signal="on_enable" from="." to="Area2D3/CollisionShape2D" method="enable"]
+[connection signal="on_enable" from="." to="StaticBody2D/CollisionPolygon2D" method="enable"]
 
-[connection signal="on_enable" from="." to="Area2D4/CollisionShape2D" method="enable"]
+[connection signal="on_enable" from="." to="Area2D3/CollisionShape2D" method="enable"]
 
 [connection signal="on_enable" from="." to="Area2D2/CollisionShape2D" method="enable"]
 
 [connection signal="on_enable" from="." to="Area2D5/CollisionShape2D" method="enable"]
 
-[connection signal="on_enable" from="." to="StaticBody2D/CollisionPolygon2D" method="enable"]
+[connection signal="on_enable" from="." to="Area2D4/CollisionShape2D" method="enable"]
 
 [connection signal="on_enable" from="." to="Area2D1/CollisionShape2D" method="enable"]
 

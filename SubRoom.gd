@@ -21,5 +21,5 @@ func _door_on_exit():
     emit_signal("on_exit_room")
 
 func _on_bear_turn(turned):
-	print("bear turned ", turned)
-	emit_signal("on_turn", turned)
+    print("bear turned ", turned)
+    emit_signal("on_turn", turned)

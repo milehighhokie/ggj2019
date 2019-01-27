@@ -19,7 +19,7 @@ func _process(delta):
     pass
 
 func _on_Area2D_body_entered(body):
-	_overlap = true
+    _overlap = true
 
 func _on_Area2D_body_exited(body):
-	_overlap = false
+    _overlap = false

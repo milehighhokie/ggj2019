@@ -17,7 +17,7 @@ extents = Vector2( 10, 10 )
 
 flags = 4
 atlas = ExtResource( 7 )
-region = Rect2( 0, 0, 170, 440 )
+region = Rect2( 0, 0, 160, 440 )
 margin = Rect2( 0, 0, 0, 0 )
 filter_clip = false
 
@@ -26,7 +26,7 @@ filter_clip = false
 custom_solver_bias = 0.0
 extents = Vector2( 60, 130 )
 
-[node name="Attic" type="Sprite"]
+[node name="Attic" type="Sprite" index="0"]
 
 position = Vector2( 655.093, 360 )
 scale = Vector2( 1.02358, 1 )
@@ -104,11 +104,11 @@ shape = SubResource( 3 )
 script = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
-[connection signal="on_enable" from="." to="Area2D/CollisionShape2D" method="enable"]
-
 [connection signal="on_enable" from="." to="KinematicBody2D" method="enable"]
 
 [connection signal="on_enable" from="." to="StaticBody2D/CollisionPolygon2D" method="enable"]
+
+[connection signal="on_enable" from="." to="Area2D/CollisionShape2D" method="enable"]
 
 [connection signal="on_enable" from="." to="Art Assets_Sister/Area2D/CollisionShape2D" method="enable"]
 
