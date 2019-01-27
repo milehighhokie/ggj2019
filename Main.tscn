@@ -4,7 +4,7 @@
 [ext_resource path="res://MainRoom.tscn" type="PackedScene" id=2]
 [ext_resource path="res://SubRoom.tscn" type="PackedScene" id=3]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Visibility" ]
@@ -16,7 +16,7 @@ subs = [ NodePath("SubTemplate1"), NodePath("SubTemplate2"), NodePath("SubTempla
 [node name="SubTemplate1" parent="." index="1" instance=ExtResource( 3 )]
 
 visible = false
-_sections_unfolded = [ "Transform", "Visibility" ]
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="SubTemplate2" parent="." index="2" instance=ExtResource( 3 )]
 
