@@ -26,10 +26,12 @@ func _on_bear_turn(turned):
 	if turned:
 		if _turned == 0:
 			get_node("CanvasModulate").turn(true)
+			get_node("TimerLabel").set_pause(true)
 		_turned += 1
 	else:
 		_turned -= 1
 		if _turned == 0:
 			get_node("CanvasModulate").turn(false)
+			get_node("TimerLabel").set_pause(false)
 		
 	
