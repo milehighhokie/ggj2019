@@ -5,7 +5,7 @@ extends KinematicBody2D
 # var b = "textvar"
 
 func _ready():
-    get_node("icon/AnimationPlayer").play("Stand")
+    get_node("icon").play("Stand")
     # Called when the node is added to the scene for the first time.
     # Initialization here
     pass
@@ -41,16 +41,18 @@ func get_input():
             velocity = Vector2()
     
     if Input.is_action_pressed("hug") && !_hugging:
-        get_node("icon/AnimationPlayer").play("Hug")
+        get_node("icon").play("Hug")
+        get_node("Arm").visible = true
     elif !Input.is_action_pressed("hug") && _hugging:
-        get_node("icon/AnimationPlayer").play(
+        get_node("icon").play(
             "Walk" if _walking else "Stand")
+        get_node("Arm").visible = false
     _hugging = Input.is_action_pressed("hug")
     
     if !_hugging && velocity.length() > 0.0 && !_walking:
-        get_node("icon/AnimationPlayer").play("Walk")
+        get_node("icon").play("Walk")
     elif !_hugging && velocity.length() == 0.0 && _walking:
-        get_node("icon/AnimationPlayer").play("Stand")
+        get_node("icon").play("Stand")
     _walking = velocity.length() > 0.0
     
     if velocity.x < 0.0:
