@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/GameJam.jpg-b7998f41547e07fbe70e208379a2f033.stex"
+path="res://.import/GameJam.png-7f18962647d2cb005ef0b6659abc51b5.stex"
 
 [deps]
 
-source_file="res://GameJam.jpg"
-dest_files=[ "res://.import/GameJam.jpg-b7998f41547e07fbe70e208379a2f033.stex" ]
+source_file="res://GameJam.png"
+dest_files=[ "res://.import/GameJam.png-7f18962647d2cb005ef0b6659abc51b5.stex" ]
 
 [params]
 
