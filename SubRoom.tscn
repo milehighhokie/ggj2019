@@ -23,16 +23,19 @@ extents = Vector2( 10, 10 )
 
 position = Vector2( 655.093, 360 )
 scale = Vector2( 1.02358, 1 )
+z_index = -1
+z_as_relative = false
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Bear-03" type="Sprite" parent="." index="0"]
 
-editor/display_folded = true
 position = Vector2( 120.645, 72.5965 )
+z_index = 1
+z_as_relative = false
 texture = ExtResource( 3 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Area2D" type="Area2D" parent="Bear-03" index="0"]
 
@@ -56,7 +59,7 @@ script = ExtResource( 5 )
 
 [node name="Polygon2D" type="Polygon2D" parent="Bear-03" index="1"]
 
-position = Vector2( 38.1431, -24.5591 )
+position = Vector2( 68.9119, -23.9355 )
 polygon = PoolVector2Array( 0, 0, 0, 50, 10, 50, 10, 0 )
 uv = PoolVector2Array(  )
 color = Color( 0, 0, 0, 1 )
@@ -88,6 +91,8 @@ invert_border = 100.0
 _sections_unfolded = [ "Transform" ]
 
 [node name="KinematicBody2D" parent="." index="1" instance=ExtResource( 6 )]
+
+position = Vector2( -490, 150 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="2"]
 
@@ -129,11 +134,11 @@ scale = Vector2( 1, 1.91418 )
 shape = SubResource( 2 )
 script = ExtResource( 5 )
 
-[connection signal="on_enable" from="." to="StaticBody2D/CollisionPolygon2D" method="enable"]
+[connection signal="on_enable" from="." to="KinematicBody2D" method="enable"]
 
 [connection signal="on_enable" from="." to="Area2D/CollisionShape2D" method="enable"]
 
-[connection signal="on_enable" from="." to="KinematicBody2D" method="enable"]
+[connection signal="on_enable" from="." to="StaticBody2D/CollisionPolygon2D" method="enable"]
 
 [connection signal="on_enable" from="." to="Bear-03/Area2D/CollisionShape2D" method="enable"]
 
