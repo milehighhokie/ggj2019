@@ -7,7 +7,11 @@ signal on_exit_room
 signal on_turn(turned)
 signal on_enable(enabled)
 
+export (float) var corrupt_rate = -1
+
 func enable(enabled):
+    if corrupt_rate >= 0:
+        get_node("Bear-03/Area2D").corrupt_rate = corrupt_rate
     visible = enabled;
     emit_signal("on_enable", enabled)
 
