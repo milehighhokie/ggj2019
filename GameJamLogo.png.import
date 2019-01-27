@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Boy_Boy.png-80ed7731681352d17ba1075417cda576.stex"
+path="res://.import/GameJamLogo.png-f6bf98512cc9cd573749fc9441b4c42d.stex"
 
 [deps]
 
-source_file="res://Boy_Boy.png"
-dest_files=[ "res://.import/Boy_Boy.png-80ed7731681352d17ba1075417cda576.stex" ]
+source_file="res://GameJamLogo.png"
+dest_files=[ "res://.import/GameJamLogo.png-f6bf98512cc9cd573749fc9441b4c42d.stex" ]
 
 [params]
 

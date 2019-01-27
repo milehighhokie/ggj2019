@@ -1,23 +1,17 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Stage2_StageTwo.png" type="Texture" id=1]
 [ext_resource path="res://SubRoom.gd" type="Script" id=2]
 [ext_resource path="res://Bear-03.png" type="Texture" id=3]
 [ext_resource path="res://Bear.gd" type="Script" id=4]
 [ext_resource path="res://CollisionShape2D.gd" type="Script" id=5]
-[ext_resource path="res://KinematicBody2D.gd" type="Script" id=6]
-[ext_resource path="res://Walk.tres" type="Texture" id=7]
-[ext_resource path="res://CollisionPolygon2D.gd" type="Script" id=8]
+[ext_resource path="res://Boy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://CollisionPolygon2D.gd" type="Script" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 30, 30 )
-
-[sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
-extents = Vector2( 70, 139.9 )
 
 [node name="SubTemplate" type="Sprite"]
 
@@ -86,28 +80,7 @@ invert_enable = false
 invert_border = 100.0
 _sections_unfolded = [ "Transform" ]
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="." index="1"]
-
-position = Vector2( -450, 150 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
-script = ExtResource( 6 )
-_sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
-speed = 200
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D" index="0"]
-
-shape = SubResource( 2 )
-script = ExtResource( 5 )
-
-[node name="icon" type="Sprite" parent="KinematicBody2D" index="1"]
-
-position = Vector2( 5.97574, 6.93561 )
-scale = Vector2( 1.88639, 1.88639 )
-texture = ExtResource( 7 )
-_sections_unfolded = [ "Transform", "Z Index" ]
+[node name="KinematicBody2D" parent="." index="1" instance=ExtResource( 6 )]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="2"]
 
@@ -125,14 +98,12 @@ _sections_unfolded = [ "Collision", "Transform" ]
 position = Vector2( -640, -360 )
 build_mode = 0
 polygon = PoolVector2Array( 0, 650, -100, 650, -100, -100, 1380, -100, 1380, 820, -100, 800, -100, 650, 1280, 650, 1280, 370, 0, 370 )
-script = ExtResource( 8 )
+script = ExtResource( 7 )
 _sections_unfolded = [ "Transform" ]
 
 [connection signal="on_enable" from="." to="Bear-03/Area2D/CollisionShape2D" method="enable"]
 
 [connection signal="on_enable" from="." to="KinematicBody2D" method="enable"]
-
-[connection signal="on_enable" from="." to="KinematicBody2D/CollisionShape2D" method="enable"]
 
 [connection signal="on_enable" from="." to="StaticBody2D/CollisionPolygon2D" method="enable"]
 
