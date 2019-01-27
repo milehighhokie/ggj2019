@@ -8,6 +8,7 @@ var _overlap = false
 var _triggered = false
 
 func _ready():
+    get_node("../Achievement/AnimationPlayer").play("Stay")
     # Called when the node is added to the scene for the first time.
     # Initialization here
     pass

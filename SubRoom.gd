@@ -10,7 +10,6 @@ signal on_enable(enabled)
 func enable(enabled):
     visible = enabled;
     emit_signal("on_enable", enabled)
-    get_node("Achievement/AnimationPlayer").play("Stay")
 
 func _ready():
     # Called when the node is added to the scene for the first time.
