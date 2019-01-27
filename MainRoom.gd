@@ -7,6 +7,9 @@ func enable(enabled):
     visible = enabled;
     emit_signal("on_enable", enabled)
 
+func hide_boy():
+    get_node("KinematicBody2D").visible = false
+
 func _ready():
     pass
 
