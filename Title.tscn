@@ -4,7 +4,7 @@
 [ext_resource path="res://Icons-01.png" type="Texture" id=2]
 [ext_resource path="res://Icons-02.png" type="Texture" id=3]
 
-[node name="ColorRect" type="ColorRect" index="0"]
+[node name="ColorRect" type="ColorRect"]
 
 anchor_left = 0.0
 anchor_top = 0.0
