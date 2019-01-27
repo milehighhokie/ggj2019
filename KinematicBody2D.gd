@@ -5,7 +5,7 @@ extends KinematicBody2D
 # var b = "textvar"
 
 func _ready():
-	get_node(animation).play("Stand")
+	get_node("icon/AnimationPlayer").play("Stand")
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	pass
@@ -16,8 +16,6 @@ func _ready():
 #	pass
 
 export (int) var speed = 200
-export (NodePath) var icon;
-export (NodePath) var animation;
 
 var velocity = Vector2()
 var _enabled = true;
@@ -43,21 +41,24 @@ func get_input():
 			velocity = Vector2()
 	
 	if Input.is_action_pressed("hug") && !_hugging:
-		get_node(animation).play("Hug")
+		get_node("icon/AnimationPlayer").play("Hug")
 	elif !Input.is_action_pressed("hug") && _hugging:
-		get_node(animation).play("Walk" if _walking else "Stand")
+		get_node("icon/AnimationPlayer").play(
+			"Walk" if _walking else "Stand")
 	_hugging = Input.is_action_pressed("hug")
 	
 	if !_hugging && velocity.length() > 0.0 && !_walking:
-		get_node(animation).play("Walk")
+		get_node("icon/AnimationPlayer").play("Walk")
 	elif !_hugging && velocity.length() == 0.0 && _walking:
-		get_node(animation).play("Stand")
+		get_node("icon/AnimationPlayer").play("Stand")
 	_walking = velocity.length() > 0.0
 	
 	if velocity.x < 0.0:
-		get_node(icon).scale.x = -1
+		get_node("icon").scale.x = -1
+		get_node("Arm").scale.x = -1
 	elif velocity.x > 0.0:
-		get_node(icon).scale.x = 1
+		get_node("icon").scale.x = 1
+		get_node("Arm").scale.x = 1
 	
 	velocity = velocity * speed
 
