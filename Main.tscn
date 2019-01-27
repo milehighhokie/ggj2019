@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Govenor.gd" type="Script" id=1]
 [ext_resource path="res://MainRoom.tscn" type="PackedScene" id=2]
 [ext_resource path="res://SubRoom.tscn" type="PackedScene" id=3]
+[ext_resource path="res://BadEffect.gd" type="Script" id=4]
 
 [node name="Node2D" type="Node2D" index="0"]
 
@@ -34,16 +35,34 @@ visible = false
 
 visible = false
 
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="6"]
+
+color = Color( 1, 1, 1, 1 )
+script = ExtResource( 4 )
+_sections_unfolded = [ "Pause" ]
+target_color = Color( 0.4, 0.176471, 0.568627, 1 )
+change_speed = 0.3
+
 [connection signal="on_enter_room" from="MainTemplate" to="." method="_on_enter_room"]
 
 [connection signal="on_exit_room" from="SubTemplate1" to="." method="_on_exit_room"]
 
+[connection signal="on_turn" from="SubTemplate1" to="." method="_on_bear_turn"]
+
 [connection signal="on_exit_room" from="SubTemplate2" to="." method="_on_exit_room"]
+
+[connection signal="on_turn" from="SubTemplate2" to="." method="_on_bear_turn"]
 
 [connection signal="on_exit_room" from="SubTemplate3" to="." method="_on_exit_room"]
 
+[connection signal="on_turn" from="SubTemplate3" to="." method="_on_bear_turn"]
+
 [connection signal="on_exit_room" from="SubTemplate4" to="." method="_on_exit_room"]
 
+[connection signal="on_turn" from="SubTemplate4" to="." method="_on_bear_turn"]
+
 [connection signal="on_exit_room" from="SubTemplate5" to="." method="_on_exit_room"]
+
+[connection signal="on_turn" from="SubTemplate5" to="." method="_on_bear_turn"]
 
 
