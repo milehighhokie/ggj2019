@@ -20,7 +20,7 @@ extents = Vector2( 60, 60 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="SubTemplate" type="Sprite" index="0"]
+[node name="SubTemplate" type="Sprite"]
 
 position = Vector2( 655.093, 360 )
 scale = Vector2( 1.02358, 1 )
@@ -96,7 +96,6 @@ _sections_unfolded = [ "Transform" ]
 [node name="KinematicBody2D" parent="." index="1" instance=ExtResource( 7 )]
 
 position = Vector2( -490, 150 )
-speed = 600
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="2"]
 
@@ -138,13 +137,13 @@ scale = Vector2( 1, 1.91418 )
 shape = SubResource( 2 )
 script = ExtResource( 6 )
 
-[connection signal="on_enable" from="." to="Bear-03/Area2D/CollisionShape2D" method="enable"]
-
-[connection signal="on_enable" from="." to="Area2D/CollisionShape2D" method="enable"]
-
 [connection signal="on_enable" from="." to="KinematicBody2D" method="enable"]
 
 [connection signal="on_enable" from="." to="StaticBody2D/CollisionPolygon2D" method="enable"]
+
+[connection signal="on_enable" from="." to="Area2D/CollisionShape2D" method="enable"]
+
+[connection signal="on_enable" from="." to="Bear-03/Area2D/CollisionShape2D" method="enable"]
 
 [connection signal="body_entered" from="Bear-03/Area2D" to="Bear-03/Area2D" method="_on_Area2D_body_entered"]
 

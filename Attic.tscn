@@ -66,7 +66,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 450 ) ]
 }
 
-[node name="Attic" type="Sprite" index="0"]
+[node name="Attic" type="Sprite"]
 
 position = Vector2( 655.093, 360 )
 scale = Vector2( 1.02358, 1 )
@@ -169,9 +169,9 @@ blend_times = [  ]
 
 [connection signal="on_enable" from="." to="Area2D/CollisionShape2D" method="enable"]
 
-[connection signal="on_enable" from="." to="KinematicBody2D" method="enable"]
-
 [connection signal="on_enable" from="." to="StaticBody2D/CollisionPolygon2D" method="enable"]
+
+[connection signal="on_enable" from="." to="KinematicBody2D" method="enable"]
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
 
