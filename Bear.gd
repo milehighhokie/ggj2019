@@ -4,12 +4,15 @@ extends Area2D
 # var a = 2
 # var b = "textvar"
 
+signal on_turn(turned)
+
 export var corrupt_rate = 0.1
 export var recharge_rate = 1.0
 export(NodePath) var status_node
 
-var _status = 1.0;
-var _overlap = false;
+var _status = 1.0
+var _overlap = false
+var _turned = false
 
 func _ready():
 	
@@ -22,8 +25,15 @@ func _process(delta):
 	# Update game logic here.
 	if _overlap && Input.is_action_pressed('hug'):
 		_status = min(_status + recharge_rate * delta, 1.0)
+		if _turned:
+			emit_signal("on_turn", false)
+			_turned = false
 	else:
 		_status = max(_status - corrupt_rate * delta, 0.0)
+		if !_turned && _status == 0:
+			emit_signal("on_turn", true)
+			_turned = true
+		
 	get_node(status_node).scale = Vector2(1, _status)
 	pass
 

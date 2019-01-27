@@ -4,6 +4,7 @@ extends Sprite
 # var a = 2
 # var b = "textvar"
 signal on_exit_room
+signal on_turn(turned)
 signal on_enable(enabled)
 
 func enable(enabled):
@@ -16,5 +17,9 @@ func _ready():
     pass
 
 func _door_on_exit():
-    print("leaving room ")
+    print("leaving room")
     emit_signal("on_exit_room")
+
+func _on_bear_turn(turned):
+	print("bear turned ", turned)
+	emit_signal("on_turn", turned)
