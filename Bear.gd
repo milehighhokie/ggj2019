@@ -17,36 +17,36 @@ var _overlap = false
 var _turned = false
 
 func _ready():
-	
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
+    
+    # Called when the node is added to the scene for the first time.
+    # Initialization here
+    pass
 
 func _process(delta):
-	# Called every frame. Delta is time since last frame.
-	# Update game logic here.
-	if _overlap && Input.is_action_pressed('hug'):
-		_status = min(_status + recharge_rate * delta, 1.0)
-		if _turned:
-			get_parent().texture = good_texture
-			emit_signal("on_turn", false)
-			_turned = false
-	else:
-		_status = max(_status - corrupt_rate * delta, 0.0)
-		if !_turned && _status == 0:
-			get_parent().texture = bad_texture
-			emit_signal("on_turn", true)
-			_turned = true
-		
-	get_node(status_node).scale = Vector2(1, _status)
-	pass
+    # Called every frame. Delta is time since last frame.
+    # Update game logic here.
+    if _overlap && Input.is_action_pressed('hug'):
+        _status = min(_status + recharge_rate * delta, 1.0)
+        if _turned:
+            get_parent().texture = good_texture
+            emit_signal("on_turn", false)
+            _turned = false
+    else:
+        _status = max(_status - corrupt_rate * delta, 0.0)
+        if !_turned && _status == 0:
+            get_parent().texture = bad_texture
+            emit_signal("on_turn", true)
+            _turned = true
+        
+    get_node(status_node).scale = Vector2(1, _status)
+    pass
 
 
 func _on_Area2D_body_entered(body):
-	_overlap = true
-	pass # replace with function body
+    _overlap = true
+    pass # replace with function body
 
 
 func _on_Area2D_body_exited(body):
-	_overlap = false
-	pass # replace with function body
+    _overlap = false
+    pass # replace with function body

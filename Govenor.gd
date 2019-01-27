@@ -9,6 +9,7 @@ func _ready():
     get_node(main).enable(true)
     for subpath in subs:
         get_node(subpath).enable(false)
+    get_node("Art Assets_Sister/Ending Anim").play("Idle")
     # Called when the node is added to the scene for the first time.
     # Initialization here
     pass
@@ -23,15 +24,15 @@ func _on_exit_room():
         get_node(subpath).enable(false)
 
 func _on_bear_turn(turned):
-	if turned:
-		if _turned == 0:
-			get_node("CanvasModulate").turn(true)
-			get_node("TimerLabel").set_pause(true)
-		_turned += 1
-	else:
-		_turned -= 1
-		if _turned == 0:
-			get_node("CanvasModulate").turn(false)
-			get_node("TimerLabel").set_pause(false)
-		
-	
+    if turned:
+        if _turned == 0:
+            get_node("CanvasModulate").turn(true)
+            get_node("TimerLabel").set_pause(true)
+        _turned += 1
+    else:
+        _turned -= 1
+        if _turned == 0:
+            get_node("CanvasModulate").turn(false)
+            get_node("TimerLabel").set_pause(false)
+        
+    
