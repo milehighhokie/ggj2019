@@ -1,8 +1,8 @@
 extends Area2D
 
-signal on_exit_room;
+signal on_exit_room
 
-var _overlap = false;
+var _overlap = false
 
 func _ready():
     # Called when the node is added to the scene for the first time.
